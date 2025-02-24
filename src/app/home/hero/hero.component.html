@@ -1,0 +1,51 @@
+<section
+  class="bg-[radial-gradient(circle,#73737340_1px,transparent_1px)] bg-[size:12px_12px] flex items-center flex-col min-h-screen py-16"
+>
+  <div class="mx-auto max-w-screen-xl px-6 lg:flex lg:items-center">
+    <div class="mx-auto max-w-2xl text-center">
+      <div class="text-center">
+        <h1
+          class="text-4xl font-extrabold text-white sm:text-6xl leading-tight"
+        >
+          Manage Your Expense
+          <br />
+          <strong
+            class="font-extrabold bg-clip-text text-slate-800 text-center"
+          >
+            <om-typewriter
+              [words]="words"
+              styleClass="items-center"
+            ></om-typewriter>
+          </strong>
+        </h1>
+
+        <p class="mt-4 text-mg text-slate-800 text-center">
+          Start managing your expenses effortlessly and take control of your
+          finances.
+        </p>
+      </div>
+      <div class="mt-8 flex flex-wrap justify-center gap-6">
+        <a
+          class="block w-full sm:w-auto rounded-xl bg-gray-600 px-8 py-3 text-lg font-medium text-white shadow-lg hover:bg-black transform hover:scale-105 transition-all duration-300"
+          routerLink="/dashboard"
+        >
+          GET STARTED 🚀
+        </a>
+
+        <button
+          class="rounded-xl px-8 py-3 text-lg font-medium bg-gray-100 text-black shadow-lg hover:text-white hover:bg-black transform hover:scale-105 transition-all duration-300"
+        >
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <img
+    class="mt-8 rounded-xl border-2 border-gray-700 shadow-lg hover:shadow-gray-500 transition-all duration-300 hover:scale-105"
+    src="assets/Dashboard.jpeg"
+    alt="dashboard"
+    width="1000"
+    height="700"
+  />
+</section>

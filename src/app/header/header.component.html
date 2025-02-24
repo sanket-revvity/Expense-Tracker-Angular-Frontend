@@ -1,0 +1,35 @@
+<div class="flex justify-between items-center border-bottom shadow-md">
+  <div>
+    <img
+      class="p-5"
+      src="assets/logo.svg"
+      alt="logo"
+      width="100"
+      height="100"
+    />
+  </div>
+  <div class="flex justify-end items-center border-bottom">
+    <a routerLink="login">
+      <dx-button
+        text="Login"
+        stylingMode="contained"
+        type="default"
+        [width]="120"
+        [height]="40"
+        class="custom-button"
+      ></dx-button>
+    </a>
+
+    <a routerLink="/dashboard">
+      <dx-button
+        text="Dashboard"
+        stylingMode="contained"
+        type="default"
+        [width]="120"
+        [height]="40"
+        class="custom-button"
+        style="margin-right: 20px"
+      ></dx-button>
+    </a>
+  </div>
+</div>

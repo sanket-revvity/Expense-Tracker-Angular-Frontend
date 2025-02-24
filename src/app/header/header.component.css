@@ -1,0 +1,11 @@
+.custom-button {
+    background-color: #36454f !important;
+    font-weight: 400;
+    font-size: medium;
+    font-family: 'Outfit';
+    color: white !important;
+    border: none;
+  }
+  .custom-button:hover {
+    background-color: black !important;
+  }

@@ -1,0 +1,99 @@
+<div
+  class="h-screen flex items-center justify-center bg-gradient-to-br from-gray-200 via-gray-300 to-gray-500 p-6"
+>
+  <div
+    class="max-w-lg w-full bg-gray-100/80 p-10 rounded-3xl shadow-xl border border-gray-400 backdrop-blur-lg"
+  >
+    <h1 class="text-center text-3xl font-bold text-gray-800 leading-tight">
+      Track Every Penny, Secure Your Future
+    </h1>
+    <p class="text-center text-gray-700 mt-3 text-lg">
+      Sign up to manage your expenses efficiently.
+    </p>
+
+    <form (ngSubmit)="handleSignup()" class="mt-8 space-y-5">
+      <div class="form-group">
+        <input
+          type="text"
+          id="username"
+          class="w-full border border-gray-400 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-600 bg-gray-200 transition-all duration-200"
+          placeholder="Enter username"
+          [(ngModel)]="username"
+          (input)="handleUsernameChange()"
+          name="username"
+          required
+        />
+        <div *ngIf="usernameError" class="text-red-600 text-sm mt-2">
+          {{ usernameError }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          class="w-full border border-gray-400 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-600 bg-gray-200 transition-all duration-200"
+          placeholder="Enter email"
+          [(ngModel)]="email"
+          (input)="handleEmailChange()"
+          name="email"
+          required
+        />
+        <div *ngIf="emailError" class="text-red-600 text-sm mt-2">
+          {{ emailError }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="password"
+          id="password"
+          class="w-full border border-gray-400 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-gray-600 bg-gray-200 transition-all duration-200"
+          placeholder="Enter password"
+          [(ngModel)]="password"
+          (input)="handlePasswordChange()"
+          name="password"
+          required
+        />
+
+        <div *ngIf="passwordError" class="text-red-600 text-sm mt-2">
+          {{ passwordError }}
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-gray-700 text-white p-4 rounded-xl text-lg font-semibold shadow-md hover:bg-gray-900 hover:shadow-lg transition-all duration-300 ease-in-out disabled:bg-gray-400"
+        [disabled]="
+          usernameError ||
+          emailError ||
+          passwordError ||
+          !username ||
+          !email ||
+          !password
+        "
+      >
+        Sign Up
+      </button>
+
+      <p class="text-center text-gray-700 text-sm mt-3">
+        Already have an account?
+        <a
+          routerLink="/login"
+          class="text-gray-900 font-semibold underline hover:text-gray-600 transition-all duration-200"
+        >
+          Log in
+        </a>
+      </p>
+    </form>
+  </div>
+
+  <!-- DevExtreme Toast Alert -->
+  <dx-toast
+    [message]="alert.message"
+    [type]="alert.type"
+    [visible]="alert.visible"
+    [displayTime]="2000"
+    [position]="{ at: 'top', my: 'top', offset: '0 20' }"
+  ></dx-toast>
+</div>
