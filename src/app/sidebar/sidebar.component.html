@@ -1,1 +1,36 @@
-<p>sidebar works!</p>
+<div
+  class="h-screen transition-all duration-300 bg-white border-0"
+  [ngClass]="{ 'w-64': !isMobile && expanded, 'w-20': isMobile || !expanded }"
+>
+  <nav class="h-full flex flex-col">
+    <div class="p-4 pb-2 flex justify-between items-center">
+      <a routerLink="/">
+        <img
+          src="assets/logo.svg"
+          class="transition-all duration-300"
+          [ngClass]="{
+            'w-12': !isMobile && expanded,
+            'w-0': isMobile || !expanded
+          }"
+          alt="logo"
+        />
+      </a>
+      <button
+        *ngIf="!isMobile"
+        (click)="toggleSidebar()"
+        class="p-1.5 rounded-lg bg-gray-100 hover:bg-gray-200"
+      >
+        <ng-container *ngIf="expanded; else collapsedIcon">
+          <lucide-icon [img]="ChevronFirst"></lucide-icon>
+        </ng-container>
+        <ng-template #collapsedIcon>
+          <lucide-icon [img]="ChevronLast"></lucide-icon>
+        </ng-template>
+      </button>
+    </div>
+
+    <ul class="flex-1 px-3">
+      <ng-content></ng-content>
+    </ul>
+  </nav>
+</div>

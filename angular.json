@@ -29,7 +29,6 @@
             ],
             "styles": [
               "node_modules/devextreme/dist/css/dx.material.blue.light.css",
-              "node_modules/ngx-typed-js/lib/ngx-typed-js.css",
               "src/styles.css"
             ],
             "scripts": []

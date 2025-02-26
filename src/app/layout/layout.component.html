@@ -1,0 +1,49 @@
+<div class="flex">
+  <div class="sidebar">
+    <app-sidebar>
+      <app-sidebar-item
+        [icon]="'assets/dashboard.svg'"
+        text="Dashboard"
+        [isActive]="router.url === '/dashboard'"
+        (click)="router.navigate(['/dashboard'])"
+      ></app-sidebar-item>
+      <app-sidebar-item
+        [icon]="'assets/circle-dollar-sign.svg'"
+        text="Income"
+        [isActive]="router.url === '/dashboard/income'"
+        (click)="router.navigate(['/dashboard/income'])"
+      ></app-sidebar-item>
+      <app-sidebar-item
+        [icon]="'assets/credit-card.svg'"
+        text="Expenses"
+        [isActive]="router.url === '/dashboard/expense'"
+        (click)="router.navigate(['/dashboard/expense'])"
+      ></app-sidebar-item>
+      <app-sidebar-item
+        [icon]="'assets/piggy-bank.svg'"
+        text="Budget"
+        [isActive]="router.url === '/dashboard/budget'"
+        (click)="router.navigate(['/dashboard/budget'])"
+      ></app-sidebar-item>
+      <hr class="my-3" />
+      <app-sidebar-item
+        [icon]="'assets/settings.svg'"
+        text="Setting"
+      ></app-sidebar-item>
+      <app-sidebar-item
+        [icon]="'assets/life-buoy.svg'"
+        text="Help"
+      ></app-sidebar-item>
+      <app-sidebar-item
+        [icon]="'assets/log-out.svg'"
+        text="Logout"
+        (click)="handleLogout()"
+      ></app-sidebar-item>
+    </app-sidebar>
+  </div>
+
+  <!-- Page Content -->
+  <main class="flex-1">
+    <router-outlet></router-outlet>
+  </main>
+</div>
