@@ -1,0 +1,60 @@
+<div class="fixed inset-0 bg-black opacity-30"></div>
+<div
+  class="fixed bg-white p-6 rounded-lg shadow-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96"
+>
+  <h1 class="text-lg font-bold text-gray-700">Edit Transaction</h1>
+  <p class="mt-2 text-gray-600">
+    Make changes to your transaction and save when you're done.
+  </p>
+  <div class="mt-4 space-y-4">
+    <div class="w-full">
+      <label class="block text-gray-700">Description</label>
+      <input
+        type="text"
+        [(ngModel)]="data.description"
+        class="w-full p-2 border rounded-lg text-gray-700"
+      />
+    </div>
+    <div class="w-full">
+      <label class="block text-gray-700">Amount</label>
+      <input
+        type="number"
+        [(ngModel)]="data.amount"
+        class="w-full p-2 border rounded-lg text-gray-700"
+      />
+    </div>
+    <div class="w-full">
+      <label class="block text-gray-700">Category</label>
+      <select
+        [(ngModel)]="data.categoryId"
+        class="w-full p-2 border rounded-lg text-gray-700"
+      >
+        <option *ngFor="let category of data.categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+    <div class="w-full">
+      <label class="block text-gray-700">Date</label>
+      <input
+        type="datetime-local"
+        [(ngModel)]="data.date"
+        class="w-full p-2 border rounded-lg text-gray-700"
+      />
+    </div>
+  </div>
+  <div class="mt-4 flex justify-end space-x-4">
+    <button
+      (click)="onNoClick()"
+      class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"
+    >
+      Discard
+    </button>
+    <button
+      (click)="saveChanges()"
+      class="px-4 py-2 bg-slate-600 text-white rounded-lg hover:bg-slate-900 transition"
+    >
+      Save Changes
+    </button>
+  </div>
+</div>

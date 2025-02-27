@@ -1,0 +1,37 @@
+.ngx-pagination .current {
+    padding: .1875rem .625rem;
+    background: black;
+    color: #fefefe;
+    cursor: default;
+    border-radius: 4px;
+}
+
+.ngx-pagination li {
+    display: inline-block;
+}
+
+.ngx-pagination a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.ngx-pagination a:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.ngx-pagination .disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

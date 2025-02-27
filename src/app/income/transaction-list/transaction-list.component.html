@@ -1,0 +1,15 @@
+<div>
+  <h2 class="text-xl font-semibold mb-4 text-center">Income Transactions</h2>
+  <div class="max-h-[450px] overflow-y-auto">
+    <div *ngIf="transactions.length === 0" class="text-center text-gray-600">
+      No transactions found
+    </div>
+    <app-transaction-card
+      *ngFor="let transaction of transactions"
+      [transaction]="transaction"
+      [categories]="categories"
+      (onDelete)="handleDelete($event)"
+      (onUpdate)="handleUpdate($event)"
+    ></app-transaction-card>
+  </div>
+</div>
