@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DatePipe, NgClass, NgForOf } from '@angular/common';
+import { DatePipe} from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditTransactionDialog } from '../edit-transaction-dialog/edit-transaction-dialog.component';
 import { DeleteTransactionDialog } from '../delete-transaction-dialog/delete-transaction-dialog.component';
@@ -100,8 +100,20 @@ export class TransactionCardComponent {
         return 'assets/gift.svg';
       case 'Pension':
         return 'assets/piggy-bank.svg';
-      case 'Interest Income':
+      case 'Interest':
         return 'assets/banknote.svg';
+        case "Education":
+          return 'assets/education.svg';
+        case "Fees":
+          return 'assets/fees.svg';
+        case "Food":
+          return 'assets/food.svg';
+        case "Travelling":
+          return 'assets/travelling.svg';
+        case "Fuel":
+          return 'assets/fuel.svg';
+        case "Rent":
+          return 'assets/rent.svg';
       default:
         return 'assets/file-text.svg';
     }

@@ -1,0 +1,61 @@
+<div class="h-full bg-gray-300 m-2 rounded-2xl p-6">
+  <h2 class="text-xl font-semibold mb-4">Add Expense</h2>
+  <form (ngSubmit)="handleSubmit()" class="space-y-4">
+    <div>
+      <input
+        type="text"
+        placeholder="Description"
+        [(ngModel)]="description"
+        name="description"
+        class="w-full p-2 rounded-lg border border-gray-400 shadow-sm"
+        required
+      />
+    </div>
+    <div>
+      <input
+        type="number"
+        placeholder="Amount"
+        [(ngModel)]="amount"
+        name="amount"
+        class="w-full p-2 rounded-lg border border-gray-400 shadow-sm"
+        required
+      />
+    </div>
+    <div>
+      <select
+        [(ngModel)]="categoryId"
+        name="categoryId"
+        class="w-full p-2 rounded-lg border border-gray-400 shadow-sm"
+        required
+      >
+        <option value="">Select Category</option>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <input
+        type="datetime-local"
+        [(ngModel)]="date"
+        name="date"
+        class="w-full p-2 rounded-lg border border-gray-400 shadow-sm"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-slate-800 transition duration-300"
+    >
+      Add Transaction
+    </button>
+  </form>
+
+  <dx-toast
+    [message]="alert.message"
+    [type]="alert.type"
+    [visible]="alert.visible"
+    [displayTime]="2000"
+    [position]="{ at: 'top', my: 'top', offset: '0 20' }"
+  ></dx-toast>
+</div>

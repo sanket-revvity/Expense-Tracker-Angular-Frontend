@@ -15,6 +15,8 @@ export class TransactionListComponent {
   @Output() onDelete = new EventEmitter<number>();
   @Output() onUpdate = new EventEmitter<{ id: number; updatedTransaction: any }>();
 
+  
+
   handleDelete(transactionId: number) {
     this.onDelete.emit(transactionId);
   }

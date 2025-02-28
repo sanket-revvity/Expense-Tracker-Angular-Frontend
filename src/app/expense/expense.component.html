@@ -1,1 +1,33 @@
-<p>expense works!</p>
+<div class="h-full p-6 bg-gray-100 rounded-2xl shadow-md">
+  <div class="h-full grid grid-cols-[40%_60%] gap-2">
+    <app-expense-form
+      [categories]="categories"
+      (transactionAdded)="handleTransactionAdded()"
+    ></app-expense-form>
+    <div class="bg-gray-300 zm-2 p-4 rounded-2xl mt-2">
+      <app-expense-list
+        [transactions]="
+          transactions
+            | paginate
+              : { itemsPerPage: itemsPerPage, currentPage: currentPage }
+        "
+        [categories]="categories"
+        (onDelete)="handleDelete($event)"
+        (onUpdate)="handleUpdate($event)"
+      ></app-expense-list>
+      <div class="flex justify-center">
+        <pagination-controls
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+  <dx-toast
+    [message]="alert.message"
+    [type]="alert.type"
+    [visible]="alert.visible"
+    [displayTime]="2000"
+    [position]="{ at: 'top', my: 'top', offset: '0 20' }"
+  ></dx-toast>
+</div>

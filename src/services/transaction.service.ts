@@ -9,6 +9,10 @@ export class TransactionService {
   private baseUrl = 'https://localhost:44374/api/transaction';
 
   constructor(private http: HttpClient) {}
+  
+  getExpenseTransactions(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/expense`, this.getHeaders());
+  }
 
   getTransactions(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/income`, this.getHeaders());
@@ -34,4 +38,5 @@ export class TransactionService {
       }),
     };
   }
+
 }
