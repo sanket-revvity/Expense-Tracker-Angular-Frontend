@@ -1,1 +1,26 @@
-<p>stats-card works!</p>
+<div class="grid grid-cols-3 gap-4 mt-8">
+  <div
+    *ngFor="let stat of stats"
+    class="flex items-center gap-4 p-7 rounded-2xl shadow-lg bg-gradient-to-br from-gray-800 to-gray-700 text-white"
+  >
+    <div class="p-3 rounded-full bg-gray-900">
+      <ng-container [ngSwitch]="stat.icon">
+        <img
+          *ngSwitchCase="'trending_up'"
+          src="assets/trendingUp.svg"
+          alt="img"
+        />
+        <img
+          *ngSwitchCase="'arrow_down'"
+          src="assets/trendingDown.svg"
+          alt="img"
+        />
+        <img *ngSwitchCase="'dollar_sign'" src="assets/balance.svg" alt="img" />
+      </ng-container>
+    </div>
+    <div class="flex flex-col">
+      <p class="text-gray-300 text-[20px]">{{ stat.label }}</p>
+      <p class="text-xl font-semibold">{{ stat.value | number }}</p>
+    </div>
+  </div>
+</div>

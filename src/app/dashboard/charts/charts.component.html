@@ -1,0 +1,23 @@
+<div class="flex justify-center gap-3 mt-8">
+  <!-- Line Chart -->
+  <div *ngIf="lineChartData" style="width: 65%; height: 400px">
+    <canvas
+      baseChart
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [type]="'line'"
+    >
+    </canvas>
+  </div>
+
+  <!-- Doughnut Chart -->
+  <div *ngIf="pieChartData" style="width: 35%; height: 400px">
+    <canvas
+      baseChart
+      [data]="pieChartData"
+      [options]="pieChartOptions"
+      [type]="'doughnut'"
+    >
+    </canvas>
+  </div>
+</div>
