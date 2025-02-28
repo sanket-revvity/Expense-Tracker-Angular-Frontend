@@ -4,10 +4,11 @@ import { StatsCardComponent } from './stats-card/stats-card.component';
 import { TransactionService } from '../../services/transaction.service';
 import { jwtDecode } from 'jwt-decode';
 import { ChartsComponent } from './charts/charts.component';
+import { DashboardTableComponent } from './dashboard-table/dashboard-table.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [StatsCardComponent, ChartsComponent],
+  imports: [StatsCardComponent, ChartsComponent, DashboardTableComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   expense = '0';
   balance = '0';
   username = '';
+  transactions: any[] = [];
   constructor(
     private transactionService: TransactionService,
     private router: Router
@@ -29,6 +31,18 @@ export class DashboardComponent implements OnInit {
       this.getUsername(token);
     }
     this.getSummary();
+    this.loadTransactions();
+  }
+
+  loadTransactions(): void {
+    this.transactionService.getAllTransactions().subscribe(
+      (transactions: any[]) => {
+        this.transactions = transactions;
+      },
+      (error: any) => {
+        console.error('Error loading transactions:', error);
+      }
+    );
   }
 
   getSummary() {

@@ -1,0 +1,35 @@
+<dx-data-grid
+  [dataSource]="transactions"
+  [showBorders]="true"
+  [rowAlternationEnabled]="true"
+  class="custom-table"
+  [paging]="{ pageSize: 5 }"
+  [pager]="{
+    showPageSizeSelector: true,
+    allowedPageSizes: [5, 10, 15],
+    showInfo: true
+  }"
+>
+  <!-- Description Column -->
+  <dxi-column dataField="description" caption="Description"> </dxi-column>
+
+  <!-- Amount Column -->
+  <dxi-column
+    dataField="amount"
+    caption="Amount"
+    dataType="number"
+    format="₹ #,##0.00"
+  >
+  </dxi-column>
+
+  <!-- Type Column (Styled using Tags) -->
+  <dxi-column dataField="type" caption="Type"> </dxi-column>
+
+  <!-- Date Column -->
+  <dxi-column
+    dataField="date"
+    caption="Date"
+    dataType="date"
+    format="dd/MM/yyyy"
+  ></dxi-column>
+</dx-data-grid>

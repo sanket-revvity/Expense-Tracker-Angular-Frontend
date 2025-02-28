@@ -38,6 +38,10 @@ export class TransactionService {
     return this.http.get<any>(`${this.baseUrl}/summary`, this.getHeaders());
   }
 
+  getAllTransactions(): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}`, this.getHeaders());
+  }
+
   private getHeaders() {
     const token = localStorage.getItem('accessToken');
     return {

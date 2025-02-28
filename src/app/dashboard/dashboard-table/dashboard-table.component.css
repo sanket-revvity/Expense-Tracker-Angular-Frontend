@@ -1,0 +1,8 @@
+.custom-table .dx-datagrid-headers {
+    background: linear-gradient(to right, #4a5568, #2d3748);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+  }
+  

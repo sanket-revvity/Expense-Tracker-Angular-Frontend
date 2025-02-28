@@ -1,4 +1,4 @@
-<div class="h-full bg-gray-50 text-gray-800 min-h-screen">
+<div class="h-full bg-gray-50 text-gray-800">
   <div class="border-b bg-white shadow-md rounded-lg py-4 px-6 mb-1">
     <div
       class="container mx-auto flex flex-wrap items-center justify-between gap-3"
@@ -12,6 +12,15 @@
       expense="{{ expense }}"
       balance="{{ balance }}"
     />
-    <app-charts />
+    <div class="mt-8 bg-white shadow-md rounded-lg p-6">
+      <app-charts />
+    </div>
+
+    <h2 class="text-2xl font-semibold text-gray-700 mt-8 mb-5">
+      Recent Transactions
+    </h2>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <app-dashboard-table [transactions]="transactions" />
+    </div>
   </div>
 </div>
