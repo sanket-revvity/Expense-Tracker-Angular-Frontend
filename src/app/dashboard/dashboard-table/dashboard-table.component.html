@@ -9,27 +9,47 @@
     allowedPageSizes: [5, 10, 15],
     showInfo: true
   }"
+  [filterRow]="{ visible: true }"
+  [searchPanel]="{ visible: true, highlightCaseSensitive: false }"
+  [sorting]="{ mode: 'multiple' }"
 >
-  <!-- Description Column -->
-  <dxi-column dataField="description" caption="Description"> </dxi-column>
+  <!-- Description Column (Searchable & Sortable) -->
+  <dxi-column
+    dataField="description"
+    caption="Description"
+    [allowFiltering]="true"
+    [allowSorting]="true"
+  >
+  </dxi-column>
 
-  <!-- Amount Column -->
+  <!-- Amount Column (Sortable & Filterable with <, >, !=) -->
   <dxi-column
     dataField="amount"
     caption="Amount"
     dataType="number"
     format="₹ #,##0.00"
+    [allowSorting]="true"
+    [allowFiltering]="true"
   >
   </dxi-column>
 
-  <!-- Type Column (Styled using Tags) -->
-  <dxi-column dataField="type" caption="Type"> </dxi-column>
+  <!-- Type Column (Searchable & Sortable) -->
+  <dxi-column
+    dataField="type"
+    caption="Type"
+    [allowFiltering]="true"
+    [allowSorting]="true"
+  >
+  </dxi-column>
 
-  <!-- Date Column -->
+  <!-- Date Column (Sortable & Filterable) -->
   <dxi-column
     dataField="date"
     caption="Date"
     dataType="date"
     format="dd/MM/yyyy"
-  ></dxi-column>
+    [allowSorting]="true"
+    [allowFiltering]="true"
+  >
+  </dxi-column>
 </dx-data-grid>
