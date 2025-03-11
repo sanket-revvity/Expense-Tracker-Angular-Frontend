@@ -2,7 +2,7 @@
   [dataSource]="transactions"
   [showBorders]="true"
   [rowAlternationEnabled]="true"
-  class="custom-table"
+  cssClass="custom-table"
   [paging]="{ pageSize: 5 }"
   [pager]="{
     showPageSizeSelector: true,
@@ -13,43 +13,39 @@
   [searchPanel]="{ visible: true, highlightCaseSensitive: false }"
   [sorting]="{ mode: 'multiple' }"
 >
-  <!-- Description Column (Searchable & Sortable) -->
   <dxi-column
     dataField="description"
     caption="Description"
+    cssClass="cell-highlighted"
     [allowFiltering]="true"
     [allowSorting]="true"
-  >
-  </dxi-column>
+  ></dxi-column>
 
-  <!-- Amount Column (Sortable & Filterable with <, >, !=) -->
   <dxi-column
     dataField="amount"
     caption="Amount"
     dataType="number"
     format="₹ #,##0.00"
+    cssClass="cell-amount"
     [allowSorting]="true"
     [allowFiltering]="true"
-  >
-  </dxi-column>
+  ></dxi-column>
 
-  <!-- Type Column (Searchable & Sortable) -->
   <dxi-column
     dataField="type"
     caption="Type"
+    cssClass="cell-type"
     [allowFiltering]="true"
     [allowSorting]="true"
-  >
-  </dxi-column>
+  ></dxi-column>
 
-  <!-- Date Column (Sortable & Filterable) -->
   <dxi-column
     dataField="date"
     caption="Date"
     dataType="date"
     format="dd/MM/yyyy"
+    cssClass="cell-date"
     [allowSorting]="true"
     [allowFiltering]="true"
-  >
-  </dxi-column>
+  ></dxi-column>
 </dx-data-grid>
